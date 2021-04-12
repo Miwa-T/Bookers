@@ -1,2 +1,29 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="application.css">
+    <title>Bookers</title>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+    <% end %>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @book.title %>
+    </p>
+    <p>
+      <strong>Body:</strong>
+      <%= @book.body %>
+    </p>
+
+    <%= link_to "Edit",edit_book_path(@book) %>
+    |
+    <%= link_to "Back",books_path(@book) %>
+  </body>
+</html>
